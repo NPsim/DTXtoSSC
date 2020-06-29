@@ -13,8 +13,8 @@ using System.Windows.Forms;
  * #---1C Left Bass Drum (DTX only)
  * #---12 Snare
  * #---14 High Tom
- * #---15 Bass Drum
- * #---13 Low Tom
+ * #---13 Bass Drum
+ * #---15 Low Tom
  * #---17 Floor Tom
  * #---16 Right Cymbal
  * #---19 Ride Cymbal (DTX only)
@@ -36,7 +36,7 @@ namespace DTXtoSSC {
             return Result.Max();
         }
         private int Precision = 4; // Precision = Number of chip raw lines in measure
-        public enum Lane { LC, HH, LP, SN, HT, LT, BD, FT, RC }
+        public enum Lane { LC, HH, LP, SN, HT, BD, LT, FT, RC }
         public List<char[]> Data = new List<char[]>();
 
         public SSCMeasure() {
@@ -171,8 +171,8 @@ namespace DTXtoSSC {
                 case "1C": return "LP"; // Left Bass Drum -> Left Pedal
                 case "12": return "SN"; // Snare
                 case "14": return "HT"; // High Tom
-                case "15": return "BD"; // Bass Drum
-                case "13": return "LT"; // Low Tom
+                case "13": return "BD"; // Bass Drum
+                case "15": return "LT"; // Low Tom
                 case "17": return "FT"; // Floor Tom
                 case "16": return "RC"; // Right Cymbal
                 case "19": return "RC"; // Ride Cymbal -> Right Cymbal
@@ -198,7 +198,7 @@ namespace DTXtoSSC {
         public static void Main(string[] args) {
 
             SSCFile DTXtoSSCFile = new SSCFile();
-            string DTXFilePath = @"G:\Games\StepMania 5.3 Outfox\Songs\DTX\StayTune\DTXsim.dtx";
+            string DTXFilePath;
 
             // Get DTX File
             using (OpenFileDialog Dialog = new OpenFileDialog()) {
